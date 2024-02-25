@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', function () {
-    return 'Bienvenidos a la pagina de inicio con ruta';
-});
+
+Route::get('home',[ProductoController::class, 'index'])->name('producto.index');
+
+Route::get('create',[ProductoController::class, 'create'])->name('producto.create');
+
+Route::post('store',[ProductoController::class, 'store'])->name('producto.store');
+
+Route::get('edit',[ProductoController::class, 'edit']);
+
+Route::get('update',[ProductoController::class, 'update']);
+
+Route::get('destroy',[ProductoController::class, 'destroy']);
+
