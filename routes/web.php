@@ -25,9 +25,11 @@ Route::get('create',[ProductoController::class, 'create'])->name('producto.creat
 
 Route::post('store',[ProductoController::class, 'store'])->name('producto.store');
 
-Route::get('edit',[ProductoController::class, 'edit']);
+Route::get('edit/{id}',[ProductoController::class, 'edit'])->name('producto.edit');
 
-Route::get('update',[ProductoController::class, 'update']);
+Route::get('eliminar/{id}',[ProductoController::class, 'eliminar'])->name('producto.eliminar');
 
-Route::get('destroy',[ProductoController::class, 'destroy']);
+Route::put('update/{id}',[ProductoController::class, 'update'])->name('producto.update');
+
+Route::get('destroy{id}',[ProductoController::class, 'destroy'])->name('producto.destroy');
 

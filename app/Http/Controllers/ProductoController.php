@@ -30,10 +30,12 @@ class ProductoController extends Controller
     public function store(Request $request)
     {   $nvProducto = new Producto();
         $nvProducto->codigoProducto = $request->input('codigoProducto');
-        $nvProducto->name = $request->input('name');
+        $nvProducto->nombre = $request->input('nombre');
         $nvProducto->precio = $request->input('precio');
         $nvProducto->stock= $request->input('stock');
         $nvProducto->save();
+        $productos = Producto::all();
+        return redirect('home');
         
     }
 
@@ -50,7 +52,14 @@ class ProductoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $producto = Producto::find($id);
+        return view('edit', compact('producto'));
+    }
+
+    public function eliminar(string $id)
+    {
+        $producto = Producto::find($id);
+        return view ('eliminar', compact ('producto'));
     }
 
     /**
@@ -58,14 +67,24 @@ class ProductoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $nvProducto = Producto::find($id);
+        $nvProducto->nombre = $request->input('nombre');
+        $nvProducto->precio = $request->input('precio');
+        $nvProducto->stock= $request->input('stock');
+        $nvProducto->save();
+        $productos = Producto::all();
+        return redirect('home');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        
+    
+        public function destroy($id){
+            $Producto = Producto::find($id);
+            $Producto->delete();
+            
+        return redirect ('home');
     }
 }

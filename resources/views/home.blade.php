@@ -17,11 +17,14 @@
         <br>
         <table>
             <thead>
-                <th>CodigoProducto</th>
-                <th>nombre</th>
-                <th>precio</th>
-                <th>stock</th>
-
+                <tr>
+                    <th scope="col">Codigo Producto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
 
             </thead>
             <body>
@@ -31,6 +34,12 @@
                     <td>{{$producto->nombre}}</td>
                     <td>{{$producto->precio}}</td>
                     <td>{{$producto->stock}}</td>
+                    <td> 
+                        <a href="{{route('producto.edit', $producto->codigoProducto)}}">Editar</a>
+                    </td>
+                    <td>
+                        <a href="{{route('producto.eliminar', $producto->codigoProducto)}}">Eliminar</a>
+                    </td>
                    </tr>
                     
                 @endforeach
@@ -39,23 +48,15 @@
             </body>
 
         </table>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/productos">Productos</a></li>
-                <!-- Agrega aquí más enlaces de navegación según sea necesario -->
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section>
-            <h2>¡Bienvenido!</h2>
-            <p>Este es el contenido principal de la página de inicio.</p>
+       
         </section>
     </main>
-
+    <br>
+    <br>
+    <br>
     <footer>
+        <p>Este es el contenido principal de la página de inicio.</p>
+        </section>
         <p>Derechos de autor &copy; 2024 Proyecto Ventas</p>
     </footer>
 </body>
