@@ -40,7 +40,14 @@
                     <td>
                         <a href="{{route('producto.eliminar', $producto->codigoProducto)}}">Eliminar</a>
                     </td>
+                    <td>
+                        <form action="{{route('mostrar.store')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="codigoProducto" value="{{$producto->codigoProducto}}">
+                            <button type="submit" class="btn btn-success">Agregar a Ventas</button>
+                        </form>
                    </tr>
+
                     
                 @endforeach
                 

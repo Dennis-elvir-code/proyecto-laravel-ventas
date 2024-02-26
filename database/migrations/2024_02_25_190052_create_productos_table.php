@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->string('codigoProducto')->primary();
             $table->string('nombre');
-            $table->decimal('precio', 8, 2)->nullable(false);
+            $table->decimal('precio', 8, 2);
             $table->integer('stock');
             $table->timestamps();
 

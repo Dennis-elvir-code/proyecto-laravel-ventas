@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\VentaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ Route::put('update/{id}',[ProductoController::class, 'update'])->name('producto.
 
 Route::get('destroy{id}',[ProductoController::class, 'destroy'])->name('producto.destroy');
 
+Route::get('ventas',[VentaController::class , 'index'])->name('ventas.index');
+
+Route::post('ventastore',[VentaController::class , 'ventastore'])->name('mostrar.store');
